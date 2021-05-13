@@ -20,7 +20,7 @@ jobs:
           install.packages("remotes")
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-          shell: Rscript {0}
+        shell: Rscript {0}
         
       - name: Restore R package cache
         id: cache-r-packages
