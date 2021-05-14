@@ -25,7 +25,7 @@ jobs:
           
       - name: Install Packages
         if: steps.cache-r-packages.outputs.cache-hit != 'true'
-        run: Rscript -e 'install.packages(c("tidyverse", "zoo"), dependencies = TRUE)'          
+        run: R -e 'source("install-packages.R", echo = TRUE)'         
         
       - name: Download, Parse and Create CSV
         run: Rscript india-provinces.R
