@@ -20,12 +20,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}--1-
-          restore-keys: ${{ runner.os }}--1-
+          key: ${{ runner.os }}-${{ hashFiles('install-packages.R') }}-1-
           
       - name: Install Packages
         if: steps.cache-r-packages.outputs.cache-hit != 'true'
-        run: R -e 'source("install-packages.R", echo = TRUE)'         
+        run: Rscript -e 'install.packages(c("tidyverse", "zoo"), dependencies = TRUE)'          
         
       - name: Download, Parse and Create CSV
         run: Rscript india-provinces.R
