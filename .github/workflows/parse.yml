@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('install-packages.R') }}-1-
+          key: ${{ runner.os }}--${{ hashFiles('install-packages.R') }}-1-
           
       - name: Install Packages
         if: steps.cache-r-packages.outputs.cache-hit != 'true'
