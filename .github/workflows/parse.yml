@@ -3,11 +3,11 @@ name: download-parse-create
 on:
   workflow_dispatch:
   schedule:
-    - cron: '9 12,18,23 * * *'
+    - cron: '9 12 * * *'
 
 jobs:
   run-download-parse-create:
-    runs-on: macOS-latest
+    runs-on: macOS-10.15
     steps:
       - uses: actions/checkout@v2
       
